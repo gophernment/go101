@@ -3,22 +3,27 @@ package main
 import (
 	"fmt"
 	"strconv"
-	"strings"
 )
 
 func main() {
-	fmt.Println(sum("1+2"))
-	fmt.Println(sum("a+2"))
-	fmt.Println(sum("1+b"))
+	fmt.Println(sum("1", "2"))
+	fmt.Println(sum("a", "2"))
+	fmt.Println(sum("1", "b"))
 }
 
-func sum(s string) (count int, err error) {
-	var operand1, operand2 int
-	operands := strings.Split(s, "+")
-	if operand1, err := strconv.Atoi(operands[0]); err != nil {
-		return operand1, err
-	}
-	operand2, err = strconv.Atoi(operands[0])
+func sum(leftOperand, rightOperand string) int {
+	var operand1, operand2 int = 0, 0
 
-	return operand1 + operand2, err
+	if operand1, err := strconv.Atoi(leftOperand); err != nil {
+		operand1 = 0
+	} else {
+		operand1 = operand1
+		if operand2, err := strconv.Atoi(rightOperand); err != nil {
+			operand2 = 0
+		} else {
+			operand2 = operand2
+		}
+	}
+
+	return operand1 + operand2
 }

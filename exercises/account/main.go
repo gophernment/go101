@@ -13,7 +13,7 @@ func main() {
 
 type Account struct {
 	Email       string
-	CreatedDate time.Time
+	CreatedDate time.Time `json:"created_date"`
 }
 
 func NewAccount(email string, CreatedDate int64) Account {
@@ -21,7 +21,7 @@ func NewAccount(email string, CreatedDate int64) Account {
 }
 
 func jsonString(account Account) (string, error) {
-	b, err := json.Marshal(&account)
+	b, err := json.Marshal(account)
 	if err != nil {
 		return "", err
 	}
@@ -30,6 +30,6 @@ func jsonString(account Account) (string, error) {
 
 var jsonExample = `{
     "email": "yod@go.dev",
-    "created_date": "14-01-2022 09:10:11"
+    "created_date": "2022-01-14T09:10:11Z"
 }
 `

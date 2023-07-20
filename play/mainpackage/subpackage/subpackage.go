@@ -1,7 +1,3 @@
-package subpackage
+package sub
 
-import "fmt"
-
-func init() {
-	fmt.Println("init in sub-package")
-}
+var Pi = 3.14

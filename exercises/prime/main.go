@@ -1,9 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	prime(100)
+	prime(10)
 }
 
 func prime(max int) {
@@ -15,7 +17,7 @@ func prime(max int) {
 			}
 		}
 		if count == 2 {
-			fmt.Print(i)
+			fmt.Print(i, " ")
 		}
 	}
 }
